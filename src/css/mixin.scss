@@ -1,0 +1,103 @@
+//  需要分别安装sass-loader 和 node-sass (或sass-resources-loader);可以不需要ruby
+
+//  如果你不希望将一个 Sass 的代码文件编译到一个 CSS 文件，
+//  你可以在文件名的开头添加一个下划线。这将告诉 Sass 不要将其编译到 CSS 文件。
+//  但是，在导入语句中我们不需要添加下划线
+
+// $black: #000 !default;
+// $border-radius: 0.1rem !default;
+// $bg: #fff !default;
+// !default 用于变量，如果这个变量没声明赋值，即用默认值，否则用声明的值
+
+@mixin code($black, $border-radius, $bg) {
+  color: $black;
+  border-radius: $border-radius;
+  background-color: $bg;
+}
+//flex布局
+@mixin flex($algin-items, $justify-content: flex-start) {
+  display: flex;
+  align-items: $algin-items;
+  justify-content: $justify-content;
+}
+//宽高
+@mixin scale($width, $height: auto) {
+  width: $width;
+  height: $height;
+}
+//最小宽高
+@mixin min-w-h($width, $height: auto) {
+  min-width: $width;
+  min-height: $height;
+}
+//字号颜色
+@mixin font($color, $font: 0.32rem) {
+  color: $color;
+  font-size: $font;
+}
+@mixin fontWeight($weight, $font: 0.32rem) {
+  font-weight: $weight;
+  font-size: $font;
+}
+//字体颜色，背景颜色
+@mixin colorBg($color, $bg) {
+  color: $color;
+  background: $bg;
+}
+//背景图
+@mixin bg-url($url, $size: cover) {
+  background: $url;
+  background-size: $size;
+}
+@mixin bg-image($url, $positon, $size, $color: transparent) {
+  background-image: $url;
+  background-position: $positon;
+  background-size: $size;
+  background-color: $color;
+  background-repeat: no-repeat;
+}
+
+//边线与弧度
+@mixin border($width, $style, $color, $radius) {
+  border: $width $style $color;
+  border-radius: $radius;
+}
+//文字单行或多行溢出省略
+@mixin text-flow($display, $overflow, $text, $line, $orient: vertical) {
+  display: $display;
+  overflow: $overflow;
+  text-overflow: $text;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: $orient;
+}
+@mixin textOmit() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//文案详情
+@mixin content($line-height, $text-align, $font: 0.32rem) {
+  font-size: $font;
+  line-height: $line-height;
+  text-align: $text-align;
+}
+// 定位
+@mixin position($position, $z-index: 1) {
+  position: $position;
+  z-index: $z-index;
+}
+// 绝对定位
+@mixin position-a($top, $right, $bottom, $left) {
+  position: absolute;
+  left: $left;
+  right: $right;
+  top: $top;
+  bottom: $bottom;
+}
+
+// 标签
+@mixin tag($color, $borderColor, $BgColor) {
+  color: $color;
+  border-color: $borderColor;
+  background-color: $BgColor;
+}
